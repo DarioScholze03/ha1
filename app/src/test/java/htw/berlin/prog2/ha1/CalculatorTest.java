@@ -105,6 +105,25 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("if you press C one time: delete the last input. If you press C two times: delete everything.")
+    void testPressClearKey(){
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(7);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(7);
+        calc.pressClearKey();
+        calc.pressClearKey();
+
+
+
+        String expected = "0";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+
+
+    }
     //TODO hier weitere Tests erstellen
 }
 
