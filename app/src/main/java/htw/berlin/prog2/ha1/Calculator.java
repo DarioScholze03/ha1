@@ -14,6 +14,8 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    public int clearCounter = 0;
+
     /**
      * @return den aktuellen Bildschirminhalt als String
      */
@@ -45,9 +47,20 @@ public class Calculator {
      * im Ursprungszustand ist.
      */
     public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+        clearCounter++;
+
+        if(clearCounter == 1){
+            screen = "0";
+        }
+            else {
+            latestOperation = "";
+            latestValue = 0.0;
+        }
+
+
+        //screen = "0";
+        //latestOperation = "";
+        //latestValue = 0.0;
     }
 
     /**
@@ -55,7 +68,7 @@ public class Calculator {
      * Addition, Substraktion, Division, oder Multiplikation, welche zwei Operanden benötigen.
      * Beim ersten Drücken der Taste wird der Bildschirminhalt nicht verändert, sondern nur der
      * Rechner in den passenden Operationsmodus versetzt.
-     * Beim zweiten Drücken nach Eingabe einer weiteren Zahl wird direkt des aktuelle Zwischenergebnis
+     * Beim zweiten Drücken nach Eingabe einer weiteren Zahl  wird direkt des aktuelle Zwischenergebnis
      * auf dem Bildschirm angezeigt. Falls hierbei eine Division durch Null auftritt, wird "Error" angezeigt.
      * @param operation "+" für Addition, "-" für Substraktion, "x" für Multiplikation, "/" für Division
      */
