@@ -131,6 +131,9 @@ public class Calculator {
      * und das Ergebnis direkt angezeigt.
      */
     public void pressEqualsKey() {
+        if(latestOperation.isEmpty()){ //vorher equals("") aber IntelliJ meinte isEmpty ist besser
+            return;
+        }
         var result = switch(latestOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
